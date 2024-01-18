@@ -7,7 +7,7 @@ I've launched a personal website! But you're here, so you already knew that.
 
 ## Why now?
 
-I've always wanted a little command center on the internet. A place to organize all the information I find interesting. A central platform from which I can control my internet presence (to the extent that I have one, [and I really don't](https://barch.blog)). I put off building it for a couple of reasons:
+I've always wanted a little command center on the internet. A place to organize all the information I find interesting. A central platform from which I can control my internet presence (to the extent that I have one, [and I really don't](/)). I put off building it for a couple of reasons:
 
 1. **Lack of technical ability.** Until 2020, I didn't know even the basics of programming. Standing up a personal site would have meant using something like Wordpress or Squarespace. Even before I knew anything about software, solutions like these set off my lock-in/future-proofing spidey senses. It seemed better not to build a site at all than to build one that I would grow to resent as my technical ability improved.
 
