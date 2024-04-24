@@ -5,15 +5,23 @@ date = 2024-01-17T09:00:00-05:00
 
 I've launched a personal website! But you're here, so you already knew that.
 
+## What do I want it to be?
+
+When I was a kid, I got obsessed with the book [A Big Ball of String](https://www.goodreads.com/en/book/show/972531) by Marion Holland. It tells the story of a boy who's sick in bed and unable to do much. He finds that with his big ball of string, he can do almost anything by tying string to the object he wants to control. This was years before smart homes, so the idea of having centralized control over my bedroom was new. It immediately gripped my five year old brain and I set about copying the story's hero. I tied two strings to my light switch (one to pull up and one to pull down) and two to my door (the one for _open_ wrapped around the doorknob several times to spin it before pulling open the door). I tried tying a set to each of my windows, but they were too heavy for the wall tacks I was using for pulleys. 
+
+The setup crumbled after a few days. Among the culprits were substandard building materials, shoddy craftsmanship, and an inexperienced builder. But for the few days that it worked, I was enamored with the sense of self-extension. I was able to do things from bed that I would normally have to get up to do. It was problem solving and engineering. It felt powerful and magical.
+
+I've always loved the idea of building and having a command center. There is just something in me that loves to systematize things and build processes. It feels almost magical to eliminate work in this way, where you've designed a system ahead of time so that when the time comes to "do work", you just have to flick a wrist or tap a few keys and the thing is done for you. A place to organize all the information I find interesting. A central platform from which I can control my internet presence (to the extent that I have one, [and I really don't](/)).
+
 ## Why now?
 
-I've always wanted a little command center on the internet. A place to organize all the information I find interesting. A central platform from which I can control my internet presence (to the extent that I have one, [and I really don't](/)). I put off building it for a couple of reasons:
+I put off building it for a couple of reasons:
 
-1. **Lack of technical ability.** Until 2020, I didn't know even the basics of programming. Standing up a personal site would have meant using something like Wordpress or Squarespace. Even before I knew anything about software, solutions like these set off my lock-in/future-proofing spidey senses. It seemed better not to build a site at all than to build one that I would grow to resent as my technical ability improved.
+1. **Lack of technical ability.** Until 2021, I had hardly even tried to program a computer. Standing up a personal site would have meant using something like Wordpress or Squarespace. Even before I knew anything about software, solutions like these set off my lock-in/future-proofing spidey senses. It seemed better not to build a site at all than to build one that I would grow to resent as my technical ability improved.
 
 2. **Higher-priority projects.** As I got better at programming, a new reason for putting off the personal site emerged: I could build much cooler things. Why would I spend my time on a blog when I could spend it building [an alarm clock that gets you to the gym in the morning](https://github.com/eric-barch/snoozeless-app)? Why write Markdown when I could write a [webscraper that points out when Vegas misprices a football game](https://github.com/eric-barch/betbot)? There were things that I wanted to see exist in the world more than my personal site. Those things got built first.
 
-These arguments don't hold anymore. I just finished up a batch at the [Recurse Center](https://www.recurse.com/), where I (1) dramatically improved my technical ability and (2) built a lot of those higher-priority projects. I'm also moving from the "child-like exploration" phase of my sabbatical to the "decision and commitment" phase (put less pretentiously, I'm done being funemployed and I want to contribute to society again).
+These arguments don't hold anymore. I just finished up a batch at the [Recurse Center](https://www.recurse.com/), where I (1) dramatically improved my technical ability and (2) built a lot of those higher-priority projects. I'm also moving from the "child-like exploration" phase of my sabbatical to the "decision and commitment" phase (put less pretentiously, I'm done being funemployed and am seeking gainful employment).
 
 So I find myself at a point where my excuses for not launching a site are no longer valid, and I have a need to communicate to others how I think and what I like to do. It's the perfect time to launch a personal site.
 

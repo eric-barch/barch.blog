@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on barch.blog</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on barch.blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 Jan 2024 09:00:00 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Sphericle - Part 1</title>
+      <link>http://localhost:1313/posts/building-sphericle-1/</link>
+      <pubDate>Wed, 31 Jan 2024 09:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/building-sphericle-1/</guid>
+      <description>What I learned changing the way the world learns geography.</description>
+    </item>
+    <item>
+      <title>Hello, World</title>
+      <link>http://localhost:1313/posts/hello-world/</link>
+      <pubDate>Wed, 17 Jan 2024 09:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <description>I&amp;rsquo;ve launched a personal website! But you&amp;rsquo;re here, so you already knew that.
+Why now? When I was a kid, I got obsessed with the book A Big Ball of String by Marion Holland. It tells the story of a boy sick in bed and unable to do much. He finds that with his big ball of string, he can do almost anything by tying string to the object he wants to control.</description>
+    </item>
+  </channel>
+</rss>
