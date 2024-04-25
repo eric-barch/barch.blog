@@ -34,7 +34,7 @@ const sortedPosts = getSortedPosts(posts);
               ({ data, slug }, index) =>
                 index < 4 && (
                   <Card
-                    href={`/posts/${slug}/`}
+                    href={`/blog/${slug}/`}
                     frontmatter={data}
                     secHeading={false}
                   />
@@ -46,7 +46,7 @@ const sortedPosts = getSortedPosts(posts);
     }
 
     <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
+      <LinkButton href="/blog/">
         All Posts
         <svg xmlns="http://www.w3.org/2000/svg"
           ><path

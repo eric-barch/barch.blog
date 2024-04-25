@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Posts from "@layouts/Posts.astro";
+import Blog from "@layouts/Blog.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import getPagination from "@utils/getPagination";
 
@@ -15,4 +15,4 @@ const pagination = getPagination({
 });
 ---
 
-<Posts {...pagination} />
+<Blog {...pagination} />
