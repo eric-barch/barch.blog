@@ -6,7 +6,6 @@ title: Hello, World!
 slug: hello-world
 featured: false
 draft: false
-tags: []
 description: My first blog post.
 ---
 
