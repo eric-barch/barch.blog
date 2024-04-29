@@ -1,6 +1,5 @@
 ---
 import { SITE } from "@config";
-import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
@@ -11,13 +10,13 @@ const { activeNav } = Astro.props;
 ---
 
 <header>
-  <a id="skip-to-content" href="#main-content">Skip to content</a>
-  <div class="nav-container">
-    <div class="top-nav-wrap">
-      <a href="/" class="logo whitespace-nowrap">
-        {SITE.title}
-      </a>
-      <nav id="nav-menu">
+  <a id="skip-to-content" href="#main-content" class="skip-to-content"
+    >Skip to content</a
+  >
+  <div class="flex flex-col">
+    <div class="flex w-full flex-row items-center justify-between py-4">
+      <a href="/" class="logo whitespace-nowrap">{SITE.title}</a>
+      <nav id="" class="flex-grow">
         <button
           class="hamburger-menu focus-outline"
           aria-label="Open Menu"
@@ -99,19 +98,13 @@ const { activeNav } = Astro.props;
         </ul>
       </nav>
     </div>
+    <hr class="w-full border-skin-line" />
   </div>
-  <Hr />
 </header>
 
 <style>
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
-  }
-  .nav-container {
-    @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row;
-  }
-  .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
   }
   .logo {
     @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
