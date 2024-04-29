@@ -26,7 +26,7 @@ const searchList = sortedActivity.map(({ data, slug }) => ({
 
 <Layout title={`Search | ${SITE.title}`}>
   <Header activeNav="search" />
-  <Main pageTitle="Search" pageDesc="Search the site.">
+  <Main pageTitle="Search">
     <SearchBar client:load searchList={searchList} />
   </Main>
   <Footer />
