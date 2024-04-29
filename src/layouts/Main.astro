@@ -14,20 +14,10 @@ export type Props = StringTitleProp | ArrayTitleProp;
 const { props } = Astro;
 ---
 
-<main id="main-content">
-  <h1>{props.pageTitle}</h1>
-  <p>{props.pageDesc}</p>
+<main>
+  <section class="my-8 space-y-4">
+    <h1 class="text-2xl font-semibold">{props.pageTitle}</h1>
+    <p class="italic">{props.pageDesc}</p>
+  </section>
   <slot />
 </main>
-
-<style>
-  #main-content {
-    @apply mx-auto w-full max-w-3xl px-4 pb-4;
-  }
-  #main-content h1 {
-    @apply text-2xl font-semibold sm:text-3xl;
-  }
-  #main-content p {
-    @apply mb-6 mt-2 italic;
-  }
-</style>
