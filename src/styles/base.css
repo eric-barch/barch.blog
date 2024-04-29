@@ -84,10 +84,6 @@
     @apply hidden;
   }
 
-  html {
-    overflow-y: scroll;
-  }
-
   code,
   blockquote {
     word-wrap: break-word;
