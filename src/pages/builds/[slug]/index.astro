@@ -1,0 +1,40 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Builds from "@layouts/Builds.astro";
+import Build from "@layouts/Build.astro";
+import getSortedEntries from "@utils/getSortedEntries";
+import getPageNumbers from "@utils/getPageNumbers";
+import getPagination from "@utils/getPagination";
+
+export interface Props {
+  build: CollectionEntry<"builds">;
+}
+
+export async function getStaticPaths() {
+  const builds = await getCollection("builds", ({ data }) => !data.draft);
+
+  const buildResult = builds.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+
+  const pagePaths = getPageNumbers(builds.length).map(pageNum => ({
+    params: { slug: String(pageNum) },
+  }));
+
+  return [...buildResult, ...pagePaths];
+}
+
+const { slug } = Astro.params;
+const { build } = Astro.props;
+
+const builds = await getCollection("builds");
+const sortedBuilds = getSortedEntries<CollectionEntry<"builds">>(builds);
+
+const pagination = getPagination<CollectionEntry<"builds">>({
+  entries: sortedBuilds,
+  page: slug,
+});
+---
+
+{build ? <Build build={build} /> : <Builds {...pagination} />}

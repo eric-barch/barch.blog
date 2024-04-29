@@ -3,14 +3,17 @@ import { SITE } from "@config";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
-  activeNav?: "blog" | "portfolio" | "search";
+  activeNav?: "blog" | "builds" | "search";
 }
 
 const { activeNav } = Astro.props;
 ---
 
 <header>
-  <a id="skip-to-content" href="#main-content" class="skip-to-content"
+  <a
+    id="skip-to-content"
+    href="#main-content"
+    class="absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4"
     >Skip to content</a
   >
   <div class="flex flex-col">
@@ -44,21 +47,18 @@ const { activeNav } = Astro.props;
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a href="/blog/" class={activeNav === "blog" ? "active" : ""}>
+            <a href="/blog" class={activeNav === "blog" ? "active" : ""}>
               Blog
             </a>
           </li>
           <li>
-            <a
-              href="/portfolio/"
-              class={activeNav === "portfolio" ? "active" : ""}
-            >
-              Portfolio
+            <a href="/builds" class={activeNav === "builds" ? "active" : ""}>
+              Builds
             </a>
           </li>
           <li>
             <LinkButton
-              href="/search/"
+              href="/search"
               className={`focus-outline p-3 sm:p-1 ${
                 activeNav === "search" ? "active" : ""
               } flex`}
@@ -103,9 +103,6 @@ const { activeNav } = Astro.props;
 </header>
 
 <style>
-  #skip-to-content {
-    @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
-  }
   .logo {
     @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
   }

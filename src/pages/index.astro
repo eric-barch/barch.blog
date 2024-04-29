@@ -1,14 +1,18 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
 import Card from "@components/Card";
-import getSortedPosts from "@utils/getSortedPosts";
+import getSortedEntries from "@utils/getSortedEntries";
 
-const posts = await getCollection("blog");
-const recentPosts = getSortedPosts(posts);
+const blogPosts = await getCollection("blog");
+const builds = await getCollection("builds");
+
+const sortedActivity = getSortedEntries<CollectionEntry<"blog" | "builds">>([
+  ...blogPosts,
+  ...builds,
+]);
 ---
 
 <Layout>
@@ -24,11 +28,11 @@ const recentPosts = getSortedPosts(posts);
     </section>
     <hr class="border-skin-line" />
     {
-      recentPosts.length > 0 && (
+      sortedActivity.length > 0 && (
         <section class="my-8 space-y-4">
-          <h2 class="text-xl font-semibold">Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
+          <h2 class="text-xl font-semibold">Recent Activity</h2>
+          <ul class="space-y-4">
+            {sortedActivity.map(
               ({ data, slug }, index) =>
                 index < 4 && (
                   <Card
@@ -39,12 +43,6 @@ const recentPosts = getSortedPosts(posts);
                 )
             )}
           </ul>
-          <LinkButton href="/blog">
-            All Posts
-            <svg xmlns="http://www.w3.org/2000/svg">
-              <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
-            </svg>
-          </LinkButton>
         </section>
       )
     }
