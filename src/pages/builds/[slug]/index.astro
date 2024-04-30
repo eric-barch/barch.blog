@@ -13,9 +13,9 @@ export interface Props {
 export async function getStaticPaths() {
   const builds = await getCollection("builds", ({ data }) => !data.draft);
 
-  const buildResult = builds.map(post => ({
-    params: { slug: post.slug },
-    props: { post },
+  const buildResult = builds.map(build => ({
+    params: { slug: build.slug },
+    props: { build },
   }));
 
   const pagePaths = getPageNumbers(builds.length).map(pageNum => ({
