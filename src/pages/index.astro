@@ -6,8 +6,8 @@ import Footer from "@components/Footer.astro";
 import Card from "@components/Card";
 import getSortedEntries from "@utils/getSortedEntries";
 
-const blogPosts = await getCollection("blog");
-const builds = await getCollection("builds");
+const blogPosts = (await getCollection("blog")) || [];
+const builds = (await getCollection("builds")) || [];
 
 const sortedActivity = getSortedEntries<CollectionEntry<"blog" | "builds">>([
   ...blogPosts,
