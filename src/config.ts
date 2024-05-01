@@ -1,7 +1,7 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://barch.blog/",
+  website: "https://barch.blog",
   author: "Eric Barch",
   desc: "My blog.",
   title: "barch.blog",
@@ -32,7 +32,7 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/eric-barch/",
+    href: "https://www.linkedin.com/in/eric-barch",
     linkTitle: "LinkedIn",
     active: true,
   },
