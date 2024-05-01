@@ -3,15 +3,14 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import Card from "@components/Card";
 import type { CollectionEntry } from "astro:content";
 
-export type SearchItem = {
+interface Props {
+  entries: CollectionEntry<"blog" | "builds">[];
+}
+
+interface SearchItem {
   title: string;
   description: string;
-  data: CollectionEntry<"blog">["data"];
-  slug: string;
-};
-
-interface Props {
-  searchList: SearchItem[];
+  entry: CollectionEntry<"blog" | "builds">;
 }
 
 interface SearchResult {
@@ -19,7 +18,7 @@ interface SearchResult {
   refIndex: number;
 }
 
-export default function SearchBar({ searchList }: Props) {
+export default function SearchBar({ entries }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputVal, setInputVal] = useState("");
   const [searchResults, setSearchResults] = useState<SearchResult[] | null>(
@@ -30,25 +29,28 @@ export default function SearchBar({ searchList }: Props) {
     setInputVal(e.currentTarget.value);
   };
 
-  const fuse = useMemo(
-    () =>
-      new Fuse(searchList, {
-        keys: ["title", "description"],
-        includeMatches: true,
-        minMatchCharLength: 2,
-        threshold: 0.5,
-      }),
-    [searchList]
-  );
+  const fuse = useMemo(() => {
+    const searchList = entries.map(entry => {
+      return {
+        title: entry.data.title,
+        description: entry.data.description,
+        entry,
+      };
+    });
+
+    return new Fuse(searchList, {
+      keys: ["title", "description"],
+      includeMatches: true,
+      minMatchCharLength: 2,
+      threshold: 0.5,
+    });
+  }, [entries]);
 
   useEffect(() => {
-    // if URL has search query,
-    // insert that search query in input field
     const searchUrl = new URLSearchParams(window.location.search);
     const searchStr = searchUrl.get("q");
     if (searchStr) setInputVal(searchStr);
 
-    // put focus cursor at the end of the string
     setTimeout(function () {
       inputRef.current!.selectionStart = inputRef.current!.selectionEnd =
         searchStr?.length || 0;
@@ -56,12 +58,9 @@ export default function SearchBar({ searchList }: Props) {
   }, []);
 
   useEffect(() => {
-    // Add search result only if
-    // input value is more than one character
     let inputResult = inputVal.length > 1 ? fuse.search(inputVal) : [];
     setSearchResults(inputResult);
 
-    // Update search string in URL
     if (inputVal.length > 0) {
       const searchParams = new URLSearchParams(window.location.search);
       searchParams.set("q", inputVal);
@@ -99,7 +98,7 @@ export default function SearchBar({ searchList }: Props) {
       </label>
 
       {inputVal.length > 1 && (
-        <div className="mt-8">
+        <div className="my-4">
           Found {searchResults?.length}
           {searchResults?.length && searchResults?.length === 1
             ? " result"
@@ -108,7 +107,7 @@ export default function SearchBar({ searchList }: Props) {
         </div>
       )}
 
-      <ul>
+      <ul className="space-y-4">
         {searchResults &&
           searchResults.map(({ item }) => (
             <Card entry={item.entry} activityTypeLabels />

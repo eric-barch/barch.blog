@@ -15,19 +15,12 @@ const sortedActivity = getSortedEntries<CollectionEntry<"blog" | "builds">>([
   ...blogPosts,
   ...builds,
 ]);
-
-const searchList = sortedActivity.map(({ data, slug }) => ({
-  title: data.title,
-  description: data.description,
-  data,
-  slug,
-}));
 ---
 
 <Layout title={`Search | ${SITE.title}`}>
   <Header activeNav="search" />
   <Main pageTitle="Search">
-    <SearchBar client:load searchList={searchList} />
+    <SearchBar client:load entries={sortedActivity} />
   </Main>
   <Footer />
 </Layout>
