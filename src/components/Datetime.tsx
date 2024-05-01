@@ -1,11 +1,12 @@
 import { LOCALE } from "@config";
 
-interface DatetimesProps {
+interface DatetimeProps {
   pubDatetime: string | Date;
   modDatetime: string | Date | undefined | null;
+  showTime?: boolean;
 }
 
-interface Props extends DatetimesProps {
+interface Props extends DatetimeProps {
   size?: "sm" | "lg";
   className?: string;
 }
@@ -13,6 +14,7 @@ interface Props extends DatetimesProps {
 export default function Datetime({
   pubDatetime,
   modDatetime,
+  showTime = true,
   size = "sm",
   className,
 }: Props) {
@@ -39,13 +41,18 @@ export default function Datetime({
         <FormattedDatetime
           pubDatetime={pubDatetime}
           modDatetime={modDatetime}
+          showTime={showTime}
         />
       </span>
     </div>
   );
 }
 
-const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
+const FormattedDatetime = ({
+  pubDatetime,
+  modDatetime,
+  showTime,
+}: DatetimeProps) => {
   const myDatetime = new Date(
     modDatetime && modDatetime > pubDatetime ? modDatetime : pubDatetime
   );
@@ -64,9 +71,13 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
   return (
     <>
       <time dateTime={myDatetime.toISOString()}>{date}</time>
-      <span aria-hidden="true"> | </span>
-      <span className="sr-only">&nbsp;at&nbsp;</span>
-      <span className="text-nowrap">{time}</span>
+      {showTime && (
+        <>
+          <span aria-hidden="true"> | </span>
+          <span className="sr-only">&nbsp;at&nbsp;</span>
+          <span className="text-nowrap">{time}</span>
+        </>
+      )}
     </>
   );
 };
