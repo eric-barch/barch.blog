@@ -21,12 +21,8 @@ const { currentPage, totalPages, paginatedEntries } = Astro.props;
   <Header activeNav="blog" />
 
   <Main pageTitle="Blog">
-    <ul>
-      {
-        paginatedEntries.map(({ data, slug }) => (
-          <Card href={`/blog/${slug}/`} frontmatter={data} />
-        ))
-      }
+    <ul class="space-y-4">
+      {paginatedEntries.map(entry => <Card entry={entry} />)}
     </ul>
   </Main>
 

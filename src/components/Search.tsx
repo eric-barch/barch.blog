@@ -110,12 +110,8 @@ export default function SearchBar({ searchList }: Props) {
 
       <ul>
         {searchResults &&
-          searchResults.map(({ item, refIndex }) => (
-            <Card
-              href={`/posts/${item.slug}/`}
-              frontmatter={item.data}
-              key={`${refIndex}-${item.slug}`}
-            />
+          searchResults.map(({ item }) => (
+            <Card entry={item.entry} activityTypeLabels />
           ))}
       </ul>
     </>

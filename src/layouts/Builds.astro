@@ -22,11 +22,7 @@ const { currentPage, totalPages, paginatedEntries } = Astro.props;
 
   <Main pageTitle="Builds" pageDesc="In-depth writeups on my projects.">
     <ul>
-      {
-        paginatedEntries.map(({ data, slug }) => (
-          <Card href={`/builds/${slug}/`} frontmatter={data} />
-        ))
-      }
+      {paginatedEntries.map(entry => <Card entry={entry} />)}
     </ul>
   </Main>
 
