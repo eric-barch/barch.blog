@@ -9,4 +9,4 @@ draft: false
 description: A geography quiz platform.
 ---
 
-Test test test
+Sphericle placeholder.
