@@ -47,8 +47,8 @@ const layoutProps = {
   <Header />
 
   <main id="main-content">
-    <section class="my-8 space-y-4">
-      <h1 class="text-2xl font-semibold text-skin-accent">{title}</h1>
+    <section>
+      <h1>{title}</h1>
       <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} size="lg" />
     </section>
     <article id="article" role="article" class="prose my-8">
@@ -58,6 +58,15 @@ const layoutProps = {
 
   <Footer />
 </Layout>
+
+<style>
+  section {
+    @apply my-8 space-y-4;
+  }
+  h1 {
+    @apply text-2xl font-semibold text-skin-accent;
+  }
+</style>
 
 <script is:inline>
   /** Attaches links to headings in the document,
