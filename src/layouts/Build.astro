@@ -47,8 +47,8 @@ const layoutProps = {
   <Header />
 
   <main id="main-content">
-    <section class="my-8 space-y-4">
-      <h1 class="text-2xl font-semibold text-skin-accent">{title}</h1>
+    <section>
+      <h1>{title}</h1>
       <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} size="lg" />
     </section>
     <article id="article" role="article" class="prose my-8">
@@ -59,9 +59,16 @@ const layoutProps = {
   <Footer />
 </Layout>
 
+<style>
+  section {
+    @apply my-8 space-y-4;
+  }
+  h1 {
+    @apply text-2xl font-semibold text-skin-accent;
+  }
+</style>
+
 <script is:inline>
-  /** Attaches links to headings in the document,
-   *  allowing sharing of sections easily */
   function addHeadingLinks() {
     let headings = Array.from(document.querySelectorAll("h2, h3, h4, h5, h6"));
     for (let heading of headings) {
@@ -74,10 +81,9 @@ const layoutProps = {
       heading.appendChild(link);
     }
   }
+
   addHeadingLinks();
 
-  /** Attaches copy buttons to code blocks in the document,
-   * allowing users to copy code easily. */
   function attachCopyButtons() {
     let copyButtonLabel = "Copy";
     let codeBlocks = Array.from(document.querySelectorAll("pre"));
@@ -93,7 +99,6 @@ const layoutProps = {
       codeBlock.setAttribute("tabindex", "0");
       codeBlock.appendChild(copyButton);
 
-      // wrap codebock with relative parent element
       codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
       wrapper.appendChild(codeBlock);
 
@@ -108,7 +113,6 @@ const layoutProps = {
 
       await navigator.clipboard.writeText(text ?? "");
 
-      // visual feedback that task is completed
       button.innerText = "Copied";
 
       setTimeout(() => {
@@ -116,15 +120,15 @@ const layoutProps = {
       }, 700);
     }
   }
+
   attachCopyButtons();
 
-  /** Scrolls the document to the top when
-   * the "Back to Top" button is clicked. */
   function backToTop() {
     document.querySelector("#back-to-top")?.addEventListener("click", () => {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     });
   }
+
   backToTop();
 </script>
