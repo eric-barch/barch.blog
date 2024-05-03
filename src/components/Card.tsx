@@ -40,7 +40,9 @@ export default function Card({ entry, activityTypeLabels = false }: Props) {
       </a>
       <div className="flex flex-row items-center opacity-80">
         {activityTypeLabels && (
-          <span className="mr-2 border px-1 text-xs">{actitvityTypeLabel}</span>
+          <span className="mr-2 border border-skin-fill px-1 text-xs">
+            {actitvityTypeLabel}
+          </span>
         )}
         <Datetime
           pubDatetime={pubDatetime}
