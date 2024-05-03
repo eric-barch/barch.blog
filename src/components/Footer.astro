@@ -4,14 +4,27 @@ import Socials from "./Socials.astro";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="mt-auto w-full">
-  <hr class="border-skin-line" />
-  <div
-    class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"
-  >
-    <Socials centered />
-    <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
+<footer>
+  <hr />
+  <div class="footer-wrapper">
+    <div class="copyright-wrapper">
       <span>&#169; {currentYear} {SITE.title}</span>
     </div>
+    <Socials centered />
   </div>
 </footer>
+
+<style>
+  footer {
+    @apply mt-auto w-full;
+  }
+  hr {
+    @apply border-skin-line;
+  }
+  .footer-wrapper {
+    @apply flex flex-col items-center justify-between py-6 sm:flex-row sm:py-4;
+  }
+  .copyright-wrapper {
+    @apply my-2 flex flex-col items-center whitespace-nowrap sm:flex-row;
+  }
+</style>
