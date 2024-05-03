@@ -10,16 +10,11 @@ const { activeNav } = Astro.props;
 ---
 
 <header>
-  <a
-    id="skip-to-content"
-    href="#main-content"
-    class="absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4"
-    >Skip to content</a
-  >
-  <div class="flex flex-col">
-    <div class="flex w-full flex-row items-center justify-between py-4">
+  <a id="skip-to-content" href="#main-content">Skip to content</a>
+  <div class="navbar-wrapper">
+    <div class="navbar">
       <a href="/" class="logo whitespace-nowrap">{SITE.title}</a>
-      <nav id="" class="flex-grow">
+      <nav>
         <button
           class="hamburger-menu focus-outline"
           aria-label="Open Menu"
@@ -98,21 +93,11 @@ const { activeNav } = Astro.props;
         </ul>
       </nav>
     </div>
-    <hr class="w-full border-skin-line" />
+    <hr />
   </div>
 </header>
 
 <style>
-  .logo {
-    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
-  }
-  .hamburger-menu {
-    @apply self-end p-2 sm:hidden;
-  }
-  .hamburger-menu svg {
-    @apply h-6 w-6 scale-125 fill-skin-base;
-  }
-
   nav {
     @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
@@ -138,20 +123,31 @@ const { activeNav } = Astro.props;
   nav a.active svg {
     @apply fill-skin-accent;
   }
-
   nav button {
     @apply p-1;
   }
   nav button svg {
     @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
   }
-  #theme-btn {
-    @apply p-3 sm:p-1;
-  }
-  #theme-btn svg {
-    @apply scale-125 hover:rotate-12 sm:scale-100;
+  hr {
+    @apply w-full border-skin-line;
   }
 
+  .navbar-wrapper {
+    @apply flex flex-col;
+  }
+  .navbar {
+    @apply flex w-full flex-row items-center justify-between py-4;
+  }
+  .logo {
+    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+  }
+  .hamburger-menu {
+    @apply self-end p-2 sm:hidden;
+  }
+  .hamburger-menu svg {
+    @apply h-6 w-6 scale-125 fill-skin-base;
+  }
   .menu-icon line {
     @apply transition-opacity duration-75 ease-in-out;
   }
@@ -164,11 +160,20 @@ const { activeNav } = Astro.props;
   .menu-icon.is-active .close {
     @apply opacity-100;
   }
+
+  #skip-to-content {
+    @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
+  }
+  #theme-btn {
+    @apply p-3 sm:p-1;
+  }
+  #theme-btn svg {
+    @apply scale-125 hover:rotate-12 sm:scale-100;
+  }
 </style>
 
 <script>
   function toggleNav() {
-    // Toggle menu
     const menuBtn = document.querySelector(".hamburger-menu");
     const menuIcon = document.querySelector(".menu-icon");
     const menuItems = document.querySelector("#menu-items");
@@ -187,6 +192,5 @@ const { activeNav } = Astro.props;
 
   toggleNav();
 
-  // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", toggleNav);
 </script>
