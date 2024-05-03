@@ -12,7 +12,6 @@ export interface Props {
   canonicalURL?: string;
   pubDatetime?: Date;
   modDatetime?: Date | null;
-  scrollSmooth?: boolean;
 }
 
 const {
@@ -23,7 +22,6 @@ const {
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
   pubDatetime,
   modDatetime,
-  scrollSmooth = false,
 } = Astro.props;
 
 const socialImageURL = new URL(
@@ -33,10 +31,7 @@ const socialImageURL = new URL(
 ---
 
 <!doctype html>
-<html
-  lang=`${LOCALE.lang ?? "en"}`
-  class={`${scrollSmooth && "scroll-smooth"}`}
->
+<html lang={LOCALE.lang ?? "en"}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -108,7 +103,13 @@ const socialImageURL = new URL(
 
     <script is:inline src="/toggle-theme.js"></script>
   </head>
-  <body class="container mx-auto px-2">
+  <body>
     <slot />
   </body>
 </html>
+
+<style>
+  body {
+    @apply container mx-auto px-2;
+  }
+</style>
