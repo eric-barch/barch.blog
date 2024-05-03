@@ -15,9 +15,21 @@ const { props } = Astro;
 ---
 
 <main id="main-content">
-  <section class="my-8 space-y-4">
-    <h1 class="text-2xl font-semibold">{props.pageTitle}</h1>
-    <p class="italic">{props.pageDesc}</p>
+  <section>
+    <h1>{props.pageTitle}</h1>
+    <p>{props.pageDesc}</p>
   </section>
   <slot />
 </main>
+
+<style>
+  section {
+    @apply my-8 space-y-4;
+  }
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+  p {
+    @apply italic;
+  }
+</style>
