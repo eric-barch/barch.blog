@@ -20,7 +20,7 @@ const { currentPage, totalPages, paginatedEntries } = Astro.props;
 <Layout title={`builds | ${SITE.title}`}>
   <Header activeNav="builds" />
 
-  <Main pageTitle="builds" pageDesc="In-depth writeups on my projects.">
+  <Main pageTitle="builds" pageDesc="Projects I've built.">
     <ul>
       {paginatedEntries.map(entry => <Card entry={entry} />)}
     </ul>
