@@ -1,16 +1,12 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>barch.blog</title>
-    <link rel="stylesheet" href={{ get_url(path="fonts.css") }} />
-    <link rel="stylesheet" href={{ get_url(path="main.css") }} />
-  </head>
-
+  {% include "head.html" %}
   <body>
-    {% include "nav.html" %}
-    <section class="section">
-      <div class="container">{% block content %} {% endblock %}</div>
-    </section>
+    {% include "header.html" %}
+    <div class="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+    {% include "footer.html" %}
   </body>
 </html>

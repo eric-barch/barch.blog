@@ -1,0 +1,45 @@
+@import "_colors.scss";
+@import "_mixins.scss";
+
+body {
+  background-color: var(--base02);
+  color: var(--base05);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-family: 'Cascadia Code';
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  padding-bottom: 1em;
+}
+
+p {
+  padding-bottom: 1em;
+}
+
+a {
+  color: var(--base0D);
+  text-decoration: underline;
+}
+
+div.content {
+  align-items: center;
+  background-color: var(--base00);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 3rem 2rem;
+}
+
+div.content article {
+  @include section-width;
+}
+
+div.content section {
+  @include section-width;
+}
+

@@ -1,0 +1,52 @@
+$header-height: 4rem;
+$header-padding-height: 1rem;
+$stripe-height: 0.5rem;
+
+header {
+  align-items: center;
+  color: var(--default);
+  display: flex;
+  height: $header-height;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+div.header-padding {
+  height: $header-padding-height;
+  position: sticky;
+  z-index: 999;
+}
+
+div.header-padding.top {
+  top: 0;
+}
+
+div.header-padding.bottom {
+  top: $header-height - $header-padding-height;
+}
+
+header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header > a {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+header > nav {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+}
+
+div.stripe {
+  height: $stripe-height;
+  position: sticky;
+  top: $header-height;
+  z-index: 1000;
+}

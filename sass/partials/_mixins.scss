@@ -1,0 +1,20 @@
+@import '_themes.scss';
+
+@mixin theme($theme-name, $variant) {
+  $theme: map-get(map-get($themes, $theme-name), $variant);
+  $keys: map-keys($theme);
+  @each $key in $keys {
+    --#{$key}: #{map-get($theme, $key)};
+  }
+
+  @if $variant == 'light' {
+    --default: #000000; // black
+  } @else if $variant == 'dark' {
+    --default: #ffffff; // white
+  }
+}
+
+@mixin section-width {
+  max-width: 800px;
+  width: 100%;
+}

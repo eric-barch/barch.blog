@@ -1,0 +1,28 @@
+@import "_mixins.scss";
+
+footer {
+  align-items: center;
+  color: var(--default);
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+footer > div {
+  @include section-width;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer div.socials {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+}
+
+footer div.socials > a {
+  color: inherit;
+  display: flex;
+}

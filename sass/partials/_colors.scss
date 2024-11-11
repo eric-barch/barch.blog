@@ -1,0 +1,70 @@
+@import '_mixins.scss';
+
+:root {
+  @include theme(gruvbox, light);
+}
+
+.base00 {
+  background-color: var(--base00);
+}
+
+.base01 {
+  background-color: var(--base01);
+}
+
+.base02 {
+  background-color: var(--base02);
+}
+
+.base03 {
+  background-color: var(--base03);
+}
+
+.base04 {
+  background-color: var(--base04);
+}
+
+.base05 {
+  background-color: var(--base05);
+}
+
+.base06 {
+  background-color: var(--base06);
+}
+
+.base07 {
+  background-color: var(--base07);
+}
+
+.base08 {
+  background-color: var(--base08);
+}
+
+.base09 {
+  background-color: var(--base09);
+}
+
+.base0A {
+  background-color: var(--base0A);
+}
+
+.base0B {
+  background-color: var(--base0B);
+}
+
+.base0C {
+  background-color: var(--base0C);
+}
+
+.base0D {
+  background-color: var(--base0D);
+}
+
+.base0E {
+  background-color: var(--base0E);
+}
+
+.base0F {
+  background-color: var(--base0F);
+}
+
