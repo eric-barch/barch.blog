@@ -1,7 +1,13 @@
 @import '_mixins.scss';
 
-:root {
-  @include theme(gruvbox, light);
+$theme: 'catppuccin';
+
+html.light {
+  @include theme($theme, light);
+}
+
+html.dark {
+  @include theme($theme, dark);
 }
 
 .base00 {

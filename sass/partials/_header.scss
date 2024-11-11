@@ -30,6 +30,7 @@ div.header-padding.bottom {
 
 header a {
   color: inherit;
+  display: flex;
   text-decoration: none;
 }
 
@@ -42,6 +43,16 @@ header > nav {
   align-items: center;
   display: flex;
   gap: 2rem;
+}
+
+button#mode-icon-container {
+  background: none;
+  border: none;
+  display: flex;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
 div.stripe {
