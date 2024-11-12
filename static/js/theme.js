@@ -1,7 +1,7 @@
 function setThemeMode(mode) {
     localStorage.setItem("mode", mode);
 
-    const svgFile = mode === "dark" ? "icons/sun.svg" : "icons/moon.svg";
+    const svgFile = mode === "dark" ? "/icons/sun.svg" : "/icons/moon.svg";
     const iconContainerElement = document.getElementById("mode-icon-container");
     fetch(svgFile)
         .then(response => response.text())
