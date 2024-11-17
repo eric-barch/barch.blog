@@ -1,47 +1,62 @@
-function setThemeMode(mode) {
-    localStorage.setItem("mode", mode);
+const documentElement = document.documentElement;
+const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
+let systemModeChangeHandler = undefined;
 
-    const svgFile = mode === "dark" ? "/icons/sun.svg" : "/icons/moon.svg";
-    const iconContainerElement = document.getElementById("mode-icon-container");
-    fetch(svgFile)
-        .then(response => response.text())
-        .then(svg => {
-            iconContainerElement.innerHTML = svg;
-        });
+const modeIcons = {
+  light: "/icons/sun.svg",
+  dark: "/icons/moon.svg",
+  system: "/icons/sun-moon.svg",
+};
 
-    const htmlElement = document.querySelector("html");
-    if (mode === "dark") {
-        htmlElement.classList.remove("light");
-        htmlElement.classList.add("dark");
-    } else if (mode === "light") {
-        htmlElement.classList.remove("dark");
-        htmlElement.classList.add("light");
-    }
+function applyMode(mode) {
+  const isDarkMode = mode === "dark" || (mode === "system" && mediaQueryList.matches);
+  documentElement.classList.toggle("dark", isDarkMode);
+  documentElement.classList.toggle("light", !isDarkMode);
 }
 
-function getThemeMode() {
-    let mode = localStorage.getItem("mode");
-    if(!mode) {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            mode = "dark";
-        } else {
-            mode = "light";
-        }
-    }
-    return mode;
+function onSystemModeChange() {
+  applyMode("system");
 }
 
-function toggleThemeMode() {
-    let currentMode = getThemeMode();
-    let newMode;
-
-    if (currentMode === "dark") {
-        newMode = "light";
-    } else if (currentMode === "light") {
-        newMode = "dark";
-    }
-
-    setThemeMode(newMode);
+function updateModeIcon(modeIcon) {
+  fetch(modeIcon)
+    .then(response => response.text())
+    .then(svg => {
+      document.getElementById("mode-icon-container").innerHTML = svg;
+    });
 }
 
-setThemeMode(getThemeMode());
+function setMode(mode) {
+  if (systemModeChangeHandler) {
+    mediaQueryList.removeEventListener("change", systemModeChangeHandler);
+    systemModeChangeHandler = undefined;
+  }
+
+  applyMode(mode);
+
+  if (mode === "system") {
+    systemModeChangeHandler = onSystemModeChange;
+    mediaQueryList.addEventListener("change", systemModeChangeHandler);
+  }
+
+  updateModeIcon(modeIcons[mode]);
+
+  if (mode === "system") {
+    localStorage.removeItem("theme-mode");
+  } else {
+    localStorage.setItem("theme-mode", mode)
+  }
+}
+
+function getMode() {
+  return localStorage.getItem("theme-mode") ?? "system";
+}
+
+function cycleMode() {
+  const modes = ["light", "dark", "system"];
+  const currentMode = getMode();
+  const nextMode = modes[(modes.indexOf(currentMode) + 1) % modes.length];
+  setMode(nextMode);
+}
+
+setMode(getMode());
