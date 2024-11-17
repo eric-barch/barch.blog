@@ -1,21 +1,17 @@
-$header-height: 4rem;
-$header-padding-height: 1rem;
-$stripe-height: 0.5rem;
-
 header {
   align-items: center;
   color: var(--default);
   display: flex;
-  height: $header-height;
+  min-height: 2rem;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 div.header-padding {
-  height: $header-padding-height;
+  height: 1rem;
   position: sticky;
   z-index: 999;
 }
@@ -25,7 +21,7 @@ div.header-padding.top {
 }
 
 div.header-padding.bottom {
-  top: $header-height - $header-padding-height;
+  top: 3rem;
 }
 
 header a {
@@ -56,8 +52,8 @@ button#mode-icon-container {
 }
 
 div.stripe {
-  height: $stripe-height;
+  height: 0.5rem;
   position: sticky;
-  top: $header-height;
+  top: 4rem;
   z-index: 1000;
 }
