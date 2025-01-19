@@ -1,0 +1,6 @@
+/*
+  Access-Control-Allow-Origin: *
+
+/fonts/*
+  Cache-Control: max-age=31536000, public, immutable
+  Access-Control-Allow-Origin: *
