@@ -51,6 +51,24 @@ button#mode-icon-container {
   cursor: pointer;
 }
 
+.lucide-moon,
+.lucide-sun-moon,
+.lucide-sun {
+  display: none;
+}
+
+html:not(.system).dark .lucide-moon {
+  display: inline;
+}
+
+html.system .lucide-sun-moon {
+  display: inline;
+}
+
+html:not(.system).light .lucide-sun {
+  display: inline;
+}
+
 div.stripe {
   height: 0.5rem;
   position: sticky;

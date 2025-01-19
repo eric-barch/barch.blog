@@ -1,81 +1,75 @@
-const documentElement = document.documentElement;
-const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
+const LOCAL_STORAGE_KEY = "theme-mode";
 
-let appliedMode = null;
-let systemChangeHandler = null;
-let faviconContent = null;
+const DARK = "dark";
+const LIGHT = "light";
+const SYSTEM = "system";
 
-const modeIcons = {
-  light: "/icons/sun.svg",
-  dark: "/icons/moon.svg",
-  system: "/icons/sun-moon.svg",
-};
+const MODES = [DARK, LIGHT, SYSTEM];
 
-async function updateFavicon(appliedMode) {
-  const faviconLink = document.querySelector('link[rel="icon"]');
+const PREFERS_DARK_QUERY = window.matchMedia("(prefers-color-scheme: dark)");
 
-  if (appliedMode === "light") {
-    faviconLink.setAttribute("href", "/icons/favicon.svg");
+let appliedMode;
+
+function updateFavicon(appliedMode) {
+  const favicon = document.querySelector('link[rel="icon"]');
+
+  if (appliedMode === DARK) {
+    favicon.href = "/icons/favicon-dark.svg";
   } else {
-    faviconLink.setAttribute("href", "/icons/favicon-dark.svg");
+    favicon.href = "/icons/favicon-light.svg";
   }
 }
 
-function applyMode(mode) {
-  let newAppliedMode;
-  if (mode === "dark" || (mode === "system" && mediaQueryList.matches)) {
-    newAppliedMode = "dark";
+function setAppliedMode(appliedMode) {
+  if (appliedMode === DARK) {
+    document.documentElement.classList.remove(LIGHT);
+    document.documentElement.classList.add(DARK);
   } else {
-    newAppliedMode = "light";
+    document.documentElement.classList.remove(DARK);
+    document.documentElement.classList.add(LIGHT);
   }
 
-  if (appliedMode !== newAppliedMode) {
-    appliedMode = newAppliedMode;
-    documentElement.className = appliedMode;
-    updateFavicon(appliedMode);
-  }
+  updateFavicon(appliedMode);
 }
 
-function onSystemChange() {
-  applyMode("system");
-}
-
-function updateModeIcon(mode) {
-  const modeIcon = modeIcons[mode];
-  fetch(modeIcon)
-    .then((response) => response.text())
-    .then((svg) => {
-      document.getElementById("mode-icon-container").innerHTML = svg;
-    });
-}
-
-function setMode(mode) {
-  if (systemChangeHandler) {
-    mediaQueryList.removeEventListener("change", systemChangeHandler);
-    systemChangeHandler = null;
-  }
-
-  if (mode === "system") {
-    localStorage.removeItem("theme-mode");
-    systemChangeHandler = onSystemChange;
-    mediaQueryList.addEventListener("change", systemChangeHandler);
+function setSelectedMode(selectedMode) {
+  if (selectedMode === "system") {
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
+    document.documentElement.className = "system";
   } else {
-    localStorage.setItem("theme-mode", mode);
+    localStorage.setItem(LOCAL_STORAGE_KEY, selectedMode);
+    document.documentElement.className = "";
   }
 
-  updateModeIcon(mode);
-  applyMode(mode);
+  const newAppliedMode =
+    selectedMode === "system"
+      ? PREFERS_DARK_QUERY.matches
+        ? "dark"
+        : "light"
+      : selectedMode;
+
+  appliedMode = newAppliedMode;
+  setAppliedMode(newAppliedMode);
 }
 
-function getMode() {
-  return localStorage.getItem("theme-mode") ?? "system";
+function getSelectedMode() {
+  return localStorage.getItem(LOCAL_STORAGE_KEY) ?? "system";
 }
 
-function cycleMode() {
-  const modes = ["light", "dark", "system"];
-  const currentMode = getMode();
-  const nextMode = modes[(modes.indexOf(currentMode) + 1) % modes.length];
-  setMode(nextMode);
+function cycleSelectedMode() {
+  const currentMode = getSelectedMode();
+  const nextMode = MODES[(MODES.indexOf(currentMode) + 1) % MODES.length];
+  setSelectedMode(nextMode);
 }
 
-setMode(getMode());
+setSelectedMode(getSelectedMode());
+
+PREFERS_DARK_QUERY.addEventListener("change", () => {
+  if (getSelectedMode() === SYSTEM) {
+    if (PREFERS_DARK_QUERY.matches) {
+      setAppliedMode(DARK);
+    } else {
+      setAppliedMode(LIGHT);
+    }
+  }
+});
