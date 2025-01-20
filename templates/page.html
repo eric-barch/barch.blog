@@ -5,6 +5,6 @@
         <p class="subtitle">
             <strong>{{ page.date }}</strong>
         </p>
+        {{ page.content | safe }}
     </section>
-    {{ page.content | safe }}
 {% endblock content %}
