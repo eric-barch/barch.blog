@@ -2,20 +2,18 @@
 title="bio"
 +++
 
-<!--Too much "Dependent clause, independent clause" -->
-I grew up in a sleepy Connecticut hamlet called Simsbury. Settled in the 1670s (that's right, it's so old that it was _settled_, not founded), it's the Platonic ideal of a New England small town. Just ten miles south of the border with Massachusetts, the nutmegger residents have adopted a Bostonian taste for Dunkin' coffee and Patriots football.
+I grew up in a sleepy Connecticut hamlet called Simsbury, the Platonic ideal of a New England small town. A river runs through its center and its hills turn bright orange in the fall. Ten miles south of the border with Massachusetts, its nutmegger residents have a Bostonian taste for Dunkin' coffee and Patriots football.
 
-Like most kids, I tried a lot of extracurriculars growing up. Boy Scouts was the most impactful. At the height of my involvement, I was leaving home every other weekend to explore some new corner of the Northeast.
+Of the many extracurriculars I tried growing up, Boy Scouts was the most impactful. At the height of my involvement, I was leaving home every other weekend to explore a new corner of the American Northeast. Together with my best friends, I got to spend my youth conquering regional high points and disappearing into the woods for full weekends at a time. I learned a love for the outdoors, problem solving, and leadership.
 
-Another big force in my life was running. I signed up for Cross Country the fall of my freshman year of high school. I was never particularly talented at it, but I liked the camaraderie of the team and the challenge of pushing myself. I was Captain my senior year.
+In high school I took up running. I was never particularly talented at it, but I liked the mental challenge and, more importantly, the camaraderie of the team. I was Captain of the Cross Country team my senior year.
 
-I was a good student. I was a National Merit Semifinalist and the President of National Honor Society.
+In the summers I worked at a local farm. Some days after work, we would cool off at a rope swing we had hung by the river. Other days, we would load into my Jeep and go off-roading in a local state park.
 
-When it was time to go off to university, I chose the College of William & Mary. I had grown up through the Obama era when, at least to this blue state denizen, politics still seemed like a lofty calling. With my interest in leadership (and, admittedly, prestige) a school close to DC with a good Political Science program was appealing.
+I was always a good student.
 
-It was not a great fit, but I now look back on it fondly. My main activity while I was there was my fraternity. I had fun and made some good friends, but I would not recommend focusing on one's fraternity as the primary interest during college. I double majored in Government and Economics. I studied very little but got good grades by cramming during all nighters the night before the exam and then promptly dumping all the information as soon as I turned in my exam. I made great friends while I was there.
+When it was time to go to college, I chose the College of William & Mary. I wasn't sure what I wanted to do, but I was interested in leadership (and, admittedly, prestige), so politics seemed like a possibility. William & Mary didn't end up being a great fit, but I now look back on my time there fondly. I double majored in Economics and Government. I studied very little but managed decent grades by cramming. I made some great friends.
 
-When it was time to graduate, I didn't know what I wanted to do. I had gotten through most of college avoiding the question. I came back to this vague idea of being a politician, and I figured the first step to getting there was to go to law school. Well, there were two months until graduation and I hadn't taken the LSAT, so I started applying to paralegal jobs. I also had housing set up with a buddy in New York City if I could get a job there, so I started applying to white shoe law firms in New York. A friend I drove home somewhere had a dad who used to work at Willkie Farr & Gallagher. I think he put in a good word for me after I interviewed there.
+Graduation came and I still hadn't found my calling. I had this vague idea that I wanted to be a master of the universe, and the friends in my circle who were similarly ambitious all seemed focused on finance and law. I was too late for the finance recruiting cycle, and I had always found the idea of law school appealing, so I applied to paralegal jobs in New York City. In my mind, such a job would be a mix of finance _and_ law just by virtue of its location in the capital of capitalism. I got a job as a paralegal in the Bankruptcy, Restructuring & Reorganization group at Willkie Farr & Gallagher, a white shoe law firm in New York. So I moved there.
 
-I went and worked at Willkie. Living in the city was exciting and exhausting. 
-
+Living in New York was exciting and exhausting.
