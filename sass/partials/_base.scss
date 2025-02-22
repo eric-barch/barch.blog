@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   flex: 1;
   font-family: 'Jetbrains Mono';
-  line-height: 1.3em;
+  line-height: 1em;
   min-height: 100vh;
 }
 
@@ -19,6 +19,7 @@ h1 {
 }
 
 p {
+  line-height: 1.5em;
   padding-bottom: 1em;
 }
 
@@ -33,7 +34,6 @@ div.content {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 3rem 2rem;
 }
 
 div.content article {
@@ -42,4 +42,5 @@ div.content article {
 
 div.content section {
   @include section-width;
+  margin: 3rem 0rem;
 }
