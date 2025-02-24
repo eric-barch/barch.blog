@@ -3,7 +3,7 @@ title="bio"
 +++
 
 {% alert(type="note") %}
-This is my life story to date. For a more concise career summary, see <a href="/">my resume</a>.
+This is my life story to date. For a more concise career summary, see <a href="/Eric%20Barch%20Resume.pdf">my resume</a>.
 {% end %}
 
 I was raised in a sleepy Connecticut hamlet called Simsbury, the Platonic ideal of a New England small town. A river runs through its center, and the hills turn bright orange in fall. Just south of Massachusetts, its residents have a Bostonian taste for Dunkin’ coffee and Patriots football.
