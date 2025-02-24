@@ -1,0 +1,21 @@
+<div class="alert{% if type %} {{ type }}{% endif %}">
+    <div class="alert-header">
+        {% if type == "note" %}
+            {% include "icons/info.html" %}
+        {% elif type == "tip" %}
+            {% include "icons/lightbulb.html" %}
+        {% elif type == "important" %}
+            {% include "icons/message-square-warning.html" %}
+        {% elif type == "warning" %}
+            {% include "icons/triangle-alert.html" %}
+        {% elif type == "caution" %}
+            {% include "icons/octagon-alert.html" %}
+        {% endif %}
+        <span class="alert-type">{{ type | capitalize }}</span>
+    </div>
+    <div class="alert-body">
+        <!--{% filter safe %}-->
+        {{ body | safe }}
+        <!--{% endfilter %}-->
+    </div>
+</div>
