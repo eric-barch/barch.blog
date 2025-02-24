@@ -44,3 +44,44 @@ div.content section {
   @include section-width;
   margin: 3rem 0rem;
 }
+
+.alert {
+  border-left: 4px solid var(--alert-color);
+  background-color: var(--base01);
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
+
+.alert-header {
+  align-items: center;
+  color: var(--alert-color);
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.alert-type {
+  font-weight: bold;
+  margin-left: 0.5em;
+}
+
+.alert.note {
+  --alert-color: var(--base0D);
+}
+
+.alert.tip {
+  --alert-color: var(--base0B);
+}
+
+.alert.important {
+  --alert-color: var(--base0E);
+}
+
+.alert.warning {
+  --alert-color: var(--base0A);
+}
+
+.alert.caution {
+  --alert-color: var(--base08);
+}
+
