@@ -13,9 +13,5 @@
         {% endif %}
         <span class="alert-type">{{ type | capitalize }}</span>
     </div>
-    <div class="alert-body">
-        <!--{% filter safe %}-->
-        {{ body | safe }}
-        <!--{% endfilter %}-->
-    </div>
+    <div class="alert-body">{{ body | safe }}</div>
 </div>
