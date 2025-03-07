@@ -36,13 +36,10 @@ div.content {
   flex-direction: column;
 }
 
-div.content article {
-  @include section-width;
-}
-
 div.content section {
   @include section-width;
-  margin: 3rem 0rem;
+  margin: 3rem;
+  width: calc(100% - 6rem);
 }
 
 .alert {
